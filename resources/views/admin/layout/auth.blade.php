@@ -33,13 +33,19 @@
 </head>
 <body>
 <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+          
+                    
+                            {{--    @if(Auth::guest())--}}
 
-    
-{{--    @if(Auth::guest())--}}
+                                            @yield('content')
 
-                @yield('content')
-
-{{--    @endif--}}
+                            {{--    @endif--}}
+                       
+                </div>
+            </div> 
+        </div>
+    </div>
 </div>
 @section('scripts')
 
