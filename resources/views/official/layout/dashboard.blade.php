@@ -1,13 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="ROW Portal for applying applications for telegraph infrastructure in Assam. A Govt. of Assam property">
-    <meta name="author" content="DITEC">
-    <meta name="keyword" content="ROW, mobile Tower, telegraph infrastructure, application, apply, right of way assam">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <title>{{config('app.name')}}  - @yield('title', 'Govt of Assam')</title>
     @section('styles')
  
@@ -26,38 +22,45 @@
     <link rel="stylesheet" href="{{ asset('assets/css/shared/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets/images/logo_black.png') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendors/icheck/skins/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
  
-    @show
+    @show 
+  </head>
+  <body>
+    <div class="container-scroller">
+        @include('admin.layout.header')
+        <div class="container-fluid page-body-wrapper">
+        @include('admin.layout.sidebar')
 
-</head>
-<body>
-<div class="container-scroller">
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-          
-                    
-                            {{--    @if(Auth::guest())--}}
-
-                                            @yield('content')
-
-                            {{--    @endif--}}
-                       
-                </div>
-            </div> 
+ <!-- partial -->
+          <div class="main-panel">
+          <div class="content-wrapper">
+          @yield('content')
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid clearfix">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">All right reserved by Directorate of Information Technology, ELectronics & Communication, Govt. of Assam.</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Developed by DITEC, Assam</i>
+              </span>
+            </div>
+          </footer>
+          <!-- partial -->
         </div>
+        <!-- main-panel ends -->
+      </div>
+     
     </div>
-</div>
-@section('scripts')
-
-
-        <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
+        
+    @section('scripts')
+    <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
     <script src="{{ asset('assets/vendors/js/vendor.bundle.addons.js')}}"></script>
     <!-- endinject -->
     <!-- inject:js -->
     <script src="{{ asset('assets/js/shared/off-canvas.js')}}"></script>
     <script src="{{ asset('assets/js/shared/misc.js')}}"></script>
-    <!-- endinject -->
- 
-
-@show
-</body>
+    @show
+  </body>
 </html>

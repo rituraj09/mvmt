@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\AdminAuth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller; 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Hesto\MultiAuth\Traits\LogsoutGuard;
+
+use Illuminate\Http\Request;
+use DB, Validator, Redirect, Crypt,Input;
 
 class LoginController extends Controller
 {
@@ -50,7 +53,20 @@ class LoginController extends Controller
     {
         return view('admin.auth.login');
     }
-
+    public function postLogin(Request $request)
+    { 
+        $this->validate($request, [
+            'mobile'      => 'required',
+            'password'      => 'required',
+        ]); 
+        if (auth()->guard('admin')->attempt(['mobile' => $request->input('mobile'), 'password' => $request->input('password')]))
+        { 
+            return redirect('/admin/dashboard');
+        }else{
+            return redirect('/admin/login')->with(['message' => 'Invalid credentials', 'alert-class' => 'alert-danger']);
+        }
+    }
+    
     /**
      * Get the guard to be used during authentication.
      *
@@ -59,5 +75,9 @@ class LoginController extends Controller
     protected function guard()
     {
         return Auth::guard('admin');
+    }
+    public function logoutToPath()
+    {
+        return route('admin.login');
     }
 }

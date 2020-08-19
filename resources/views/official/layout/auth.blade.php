@@ -10,39 +10,53 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <title>{{config('app.name')}}  - @yield('title', 'Govt of Assam')</title>
     @section('styles')
-        <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('assets/css/back.css') }}" rel="stylesheet">
+ 
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/ionicons/css/ionicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/typicons/src/font/typicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.addons.css') }}">
+ 
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/shared/style.css') }}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo_black.png') }}" />
+ 
     @show
 
 </head>
-<body class="app flex-row align-items-center">
-<div class="container context">
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+          
+                    
+                            {{--    @if(Auth::guest())--}}
 
-    <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-{{--    @if(Auth::guest())--}}
+                                            @yield('content')
 
-                @yield('content')
-
-{{--    @endif--}}
+                            {{--    @endif--}}
+                       
+                </div>
+            </div> 
+        </div>
+    </div>
 </div>
 @section('scripts')
-    <script src="{{ asset('assets/js/app.js')}}"></script>
-    <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
-    <script src="{{ asset('assets/js/jquery.validate.min.js')}}"></script>
-    <script src="{{ asset('assets/js/additional-methods.min.js')}}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('assets/js/custom.js')}}"></script>
+
+
+        <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
+    <script src="{{ asset('assets/vendors/js/vendor.bundle.addons.js')}}"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="{{ asset('assets/js/shared/off-canvas.js')}}"></script>
+    <script src="{{ asset('assets/js/shared/misc.js')}}"></script>
+    <!-- endinject -->
+ 
 
 @show
 </body>
