@@ -19,6 +19,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="../../pages/ui-features/buttons.html">Users</a>
                   </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../pages/ui-features/buttons.html">File Categories</a>
+                  </li> 
                 </ul>
               </div>
             </li>
